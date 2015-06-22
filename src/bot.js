@@ -1,11 +1,11 @@
 var math = require('mathjs');
 
 module.exports = {
-    name: 'Dove',
-    tag: 'dove',
+    name: 'Mumu',
+    tag: 'mumu',
     greet: function(args){
         return [
-            'Hello there, welcome to ' + this.name + '\'s Post Office, what can I do for you?',
+            'Hi, your personal assistant is here. What can I do for you?',
             'Hints: \'@' + this.tag + ' help\' to know what I can do...'
         ];
     },

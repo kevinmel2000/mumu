@@ -5,6 +5,7 @@ module.exports = function(config){
     Bot.name = config.name || Bot.name;
     Bot.tag  = config.tag || Bot.tag;
 
+    this.tag = Bot.tag;
     this.execute = function(command, args){
         command = command || '';
         args = args || '';
