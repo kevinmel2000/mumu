@@ -16,6 +16,7 @@ io.on('connection', function (socket) {
 
     // listening chat
     socket.on('chat', function(data){
+        console.log('chat data', data);
         // try to find mumu command
         var iscommand = false,
             message = '',
