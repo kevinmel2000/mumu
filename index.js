@@ -9,11 +9,9 @@ app.get('/:command', function(req, res, next){
     res.json(mumu.execute(req.params.command, req.query.args));
 });
 
-io.on('connect', function(socket){
-    socket.emit('chat', mumu.execute('greet'));
-});
-
 io.on('connection', function (socket) {
+    socket.emit('chat', mumu.execute('greet'));
+
     socket.on('chat', function(data){
         // try to find mumu command
         var iscommand = false,
@@ -24,7 +22,7 @@ io.on('connection', function (socket) {
 
         for(var i=0; i<data.message.length; i++){
             message = data.message[i];
-            if(message.indexOf('@' + mumu.tag) === 0){
+            if(message.indexOf(mumu.tag) === 0){
                 iscommand = true;
                 tmp = message.split(' ');
                 command = tmp[1];
