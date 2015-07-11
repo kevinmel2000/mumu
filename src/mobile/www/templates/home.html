@@ -1,0 +1,59 @@
+<ion-view>
+    <ion-nav-bar class="primary-color light-text" align-title="left">
+        <ion-nav-title>
+            <img src="img/icon.png" style="height: 100%; vertical-align: middle;"> Mumu Mobile
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-header-bar class="bar bar-subheader">
+        <div class="tabs accent-color tabs-icon-top static light-text">
+            <a data-ng-repeat="tab in tabs" data-ng-click="show($index)" class="tab-item">
+                <i class="icon {{ tab.icon }}"></i> {{ tab.label }}
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header has-subheader has-footer" style="background: url(img/bg.jpg) center; background-size: cover;" data-ng-class="{'has-footer': showing == 0 }">
+        <div class="content" style="margin-bottom: 40px;" data-ng-show="showing == 0">
+            <div class="chat-list" ng-repeat="chat in chat.list">
+                <div class="chat-date" ng-if="$index == 0 || moment(chats[$index].timestamp, 'x').diff(moment(chats[$index-1],'x'), 'days') > 0">
+                    <span class="chat-date dark-primary-color light-text">{{ moment(chat.timestamp, 'x').format('DD MMM YYYY') }}</span>
+                </div>
+                <div class="light-primary-color chat" ng-class="{true: 'chat-right', false: 'chat-left'}[chat.name == auth.name]">
+                    <h4>{{ chat.name }}</h4>
+                    <div class="message" ng-repeat="message in chat.message track by $index">
+                        {{ message }}
+                    </div>
+                    <div class="time">
+                        {{ moment(chat.timestamp, 'x').format('HH:mm') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content" style="width: 100%; height: 100%;" data-ng-show="showing == 1">
+            <div id="map" style="width: 100%; height: 100%;"></div>
+        </div>
+        <div class="content" style="width: 100%; height: 100%; padding-top: 10%; " data-ng-show="showing == 2">
+            <div style="width: 80%; height: 90%; margin-left: auto; margin-right: auto; text-align: center; padding-top: 5%; background: rgba(255, 255, 255, 0.5);">
+                <img src="img/icon.png" style="width: 40%;"/>
+                <h2 class="primary-text">Mumu Mobile</h2>
+                <h4>Created with love by </h4>
+                <h5>Nicky Irawan</h5>
+                <h5>Ulya Mardikasanti</h5>
+
+                <h6>More information:</h6>
+                <h6><a href="http://mumu-mobile.herokuapp.com/">http://mumu-mobile.herokuapp.com/</a></h6>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar keyboard-attach class="bar bar-footer bar-stable item-input-inset" data-ng-show="showing == 0">
+        <div class="chat-input dark-primary-color">
+            <div class="chat-input-text">
+                <input type="text" style="width: 100%; padding: 10px;" placeholder="Type your message" on-return="chat.send(); closeKeyboard()" ng-model="chat.message" on-focus="inputUp()" on-blur="inputDown()" />
+            </div>
+            <div class="chat-input-button">
+                <a ng-click="chat.send()" class="tab-item" style="display: inline-block;">
+                    <i class="icon ion-paper-airplane"></i>
+                </a>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

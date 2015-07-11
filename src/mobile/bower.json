@@ -1,0 +1,14 @@
+{
+  "name": "Mumu",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0",
+    "ionic-material": "~0.4.2",
+    "ion-md-input": "~0.0.2",
+    "angular-socket-io": "~0.7.0",
+    "socket.io-client": "~1.3.5",
+    "ionicons": "~2.0.1",
+    "momentjs": "~2.10.3",
+    "ngCordova": "~0.1.17-alpha"
+  }
+}

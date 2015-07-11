@@ -1,0 +1,17 @@
+<ion-view view-title="Login" align-title="left">
+    <ion-content class="dark-primary-color" style="background: url(img/bg.jpg) center; background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h1>Mumu Mobile</h1>
+            </div>
+        </div>
+        <div class="list">
+            <ion-md-input placeholder="Username" ng-model="user.username" highlight-color="stable" type="text"></ion-md-input>
+            <ion-md-input placeholder="Password" ng-model="user.password" highlight-color="stable" type="password"></ion-md-input>
+        </div>
+        <div class="padding">
+            <button type="submit" data-ng-click="login()" class="button button-full accent-color ink">Login</button>
+        </div>
+    </ion-content>
+</ion-view>

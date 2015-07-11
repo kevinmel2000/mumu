@@ -1,7 +1,7 @@
 var app = require('express')(),
     server = require('http').Server(app),
     io = require('socket.io')(server),
-    mumu = new (require('./src/mumu'))(),
+    mumu = new (require('./src/server/mumu'))(),
     locations = {};
 
 server.listen(process.env.PORT || 5000);
